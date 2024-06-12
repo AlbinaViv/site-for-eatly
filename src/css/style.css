@@ -1,7 +1,7 @@
 :root {
-  --main-font: "Inter", sans-serif;
-  --features-font: "Public sans", sans-serif;
-  --title-font: "Poppins", sans-serif;
+  --main-font: 'Inter', sans-serif;
+  --features-font: 'Public sans', sans-serif;
+  --title-font: 'Poppins', sans-serif;
 
   --primary-dark: #606060;
   --hero-dark: #201f1f;
@@ -59,8 +59,9 @@ section {
   text-align: center;
   max-width: 1440px;
   min-height: 157px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  /* margin-top: 100px; */
+  /* margin-bottom: 100px; */
+  margin: 100px auto;
 }
 
 .list {
@@ -159,7 +160,7 @@ section {
 }
 
 .wrap-nav::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 330px;
   top: 100px;
@@ -229,10 +230,6 @@ section {
   padding-right: 12px;
 }
 
-.soc-tab {
-  display: none;
-}
-
 @media screen and (min-width: 1024px) {
   .burger-wrap {
     display: none;
@@ -250,7 +247,7 @@ section {
   }
 
   .wrap-nav::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 886px;
     top: 100px;
@@ -316,6 +313,9 @@ section {
     align-items: center;
     gap: 9px;
   }
+  .soc-tab {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 1248px) {
@@ -348,7 +348,7 @@ section {
   letter-spacing: 0.04em;
 }
 .hero-over::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 33px;
   left: 80px;
@@ -587,7 +587,7 @@ section {
     margin-bottom: 11px;
   }
   .hero-over::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 54px;
     height: 0;
@@ -890,7 +890,7 @@ section {
 
 /* downloader */
 .download {
-  margin: 0;
+  /* margin: 0; */
   padding-top: 33px;
   padding-bottom: 33px;
 }
@@ -1518,7 +1518,7 @@ section {
 }
 
 .footer-position:after {
-  content: "";
+  content: '';
   position: absolute;
   width: 314px;
   bottom: -30px;
@@ -1561,6 +1561,12 @@ section {
   text-align: center;
 }
 
+@media screen and (max-width: 1023px) {
+  .soc-tab {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .footer {
     display: block;
@@ -1588,7 +1594,7 @@ section {
   }
 
   .footer-position:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 886px;
     top: 170px;
@@ -1618,6 +1624,10 @@ section {
     fill: currentColor;
     width: 22px;
     height: 22px;
+  }
+
+  .soc-mob {
+    display: none;
   }
 
   .link-footer-soc:hover,

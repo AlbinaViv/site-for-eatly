@@ -1,3 +1,5 @@
+@import url('./filters.css');
+
 :root {
   --main-font: 'Inter', sans-serif;
   --features-font: 'Public sans', sans-serif;
@@ -1536,7 +1538,44 @@ section {
 }
 
 .popular-cards {
+  /* display: flex; */
+  padding-top: 148px;
+  padding-left: 50px;
+}
+.title-popular {
+  width: 182px;
+  color: rgb(50, 49, 66);
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 25.56px;
+  text-align: left;
+  padding-bottom: 86px;
+}
+
+.cards {
+  width: 225.17px;
+  height: 391.3px;
+  background: #fff;
+  border: 1.44px solid #f4f4f6;
+  border-radius: 34.66px;
   display: flex;
+  box-shadow: -18px 30px 20px 5px #e5e5e5b3;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+.cards-img {
+  border-radius: 50%;
+  width: 201.62px;
+  height: 208.69px;
+}
+.card-title {
+  width: 146.91px;
+  color: #323142;
+  font-size: 23.11px;
+  font-weight: 600;
+  line-height: 37.55px;
 }
 
 /* footer */

@@ -104,38 +104,54 @@
             </svg>
           </div>
         </div>
-      </div>
-      <div class="popular-cards">
-        <h2 class="#">Popular</h2>
-        <div class="#">
-          <img
-            class="#"
-            srcset="
-              ./img/hero/Food_image.png    1x,
-              ./img/hero/Food_image@2x.png 2x
-            "
-            src="./img/hero/Food_image.png"
-            alt="chicken photo"
-            width="201"
-            loading="lazy"
-          />
-          <div class="#">
-            <h2 class="#">Chicken Hell</h2>
-            <p class="menu-time">24min</p>
-            <svg class="icon" width="15" height="15">
-              <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
-            </svg>
-            <span>4.8</span>
-            <p>$12</p>
-            <span>.99</span>
-            <svg class="icon" width="16" height="16">
-              <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
-            </svg>
+        <div id="containerFilter">
+          <!-- <p class="filterText">Filters:</p> -->
+          <div class="filterContainerNavigation">
+            <!-- <div class="filterInputAndBtn"> -->
+            <form class="filterInputAndBtn" id="search-form">
+              <input
+                class="filtersInput"
+                name="serch"
+                placeholder="Search..."
+              />
+
+              <button class="btn btn-logo" type="submit">Search</button>
+            </form>
+            <!-- </div> -->
           </div>
         </div>
-      </div>
-      <div class="chicken-vegetables-cards">
-        <h2>Chicken Vegetables</h2>
+        <div class="popular-cards">
+          <h2 class="title-popular">Popular</h2>
+          <div class="cards">
+            <img
+              class="cards-img"
+              srcset="
+                ./img/hero/Food_image.png    1x,
+                ./img/hero/Food_image@2x.png 2x
+              "
+              src="./img/hero/Food_image.png"
+              alt="chicken photo"
+              width="201"
+              loading="lazy"
+            />
+            <div class="#">
+              <h2 class="card-title">Chicken Hell</h2>
+              <p class="menu-time">24min</p>
+              <svg class="icon" width="15" height="15">
+                <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
+              </svg>
+              <span>4.8</span>
+              <p>$12</p>
+              <span>.99</span>
+              <svg class="icon" width="16" height="16">
+                <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="popular-cards">
+          <h2 class="title-popular">Chicken Vegetables</h2>
+        </div>
       </div>
     </main>
     <footer class="footer">
@@ -326,5 +342,6 @@
     <script type="module" src="./js/subscribe.js"></script>
     <script type="module" src="./js/mobile-menu.js"></script>
     <script type="module" src="./js/api.js"></script>
+    <script type="module" src="./js/menu.js"></script>
   </body>
 </html>

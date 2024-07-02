@@ -1,0 +1,106 @@
+@import url('./style.css');
+
+#containerFilter {
+  margin-top: 74px;
+  font-family: var(--main-font);
+}
+
+.filterText {
+  color: rgba(1, 1, 1, 0.3);
+  line-height: 1.29;
+  padding-bottom: 8px;
+}
+.filterContainerNavigation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .filterContainerNavigation {
+    flex-direction: row;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+}
+.filtersInput {
+  width: 100%;
+  height: 48px;
+  padding: 14px 40px 14px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background-color: var(--backgrownd-color);
+}
+.filtersInput:hover,
+.filtersInput:focus {
+  border-color: var(--primary-dark-color);
+}
+@media (min-width: 1024px) {
+  .filtersInput {
+    height: 52px;
+    font-size: 18px;
+  }
+}
+.filtersInput::placeholder {
+  color: var(--third-dark-color);
+  font-size: 14px;
+  line-height: 1.29;
+  background-color: var(--backgrownd-color);
+}
+@media (min-width: 1024px) {
+  .filtersInput::placeholder {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+.filterInputAndBtn {
+  max-width: 768px;
+  min-width: 280px;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .filterInputAndBtn {
+    display: flex;
+    width: 700px;
+    height: 52px;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.filtersBtn {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: var(--backgrownd-color);
+}
+.filters-select {
+  max-width: 768px !important;
+  padding: 14px 20px 14px 20px !important;
+  border-radius: 30px !important;
+  font-size: 14px !important;
+  color: var(--third-dark-color) !important;
+  border: 1px solid rgba(1, 1, 1, 0.3) !important;
+  background-color: var(--backgrownd-color) !important;
+  min-height: 48px !important;
+}
+.filters-select:hover {
+  border-color: var(--primary-dark-color) !important;
+}
+
+@media (min-width: 1024px) {
+  .filters-select {
+    width: 189px !important;
+    min-height: 52px !important;
+    font-size: 18px !important;
+    line-height: 1.33 !important;
+  }
+}

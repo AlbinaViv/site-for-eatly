@@ -1564,6 +1564,7 @@ section {
   align-content: center;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .cards-img {
   border-radius: 50%;

@@ -24,3 +24,4 @@ export async function fetchProducts(q, page) {
     console.log('finally');
   }
 }
+// fetchProducts().then(res => console.log(res.results));

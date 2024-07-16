@@ -36,6 +36,7 @@ function handleSubmit(e) {
 
 function handleInput(e) {
   info[e.target.name] = e.target.value;
+
   localStorage.setItem(LS_KEY, JSON.stringify(info));
 }
 

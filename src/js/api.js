@@ -10,8 +10,6 @@ export async function fetchProducts(q, page) {
       params: {
         q,
         page,
-        image_type: 'photo',
-        orientation: 'horizontal',
         safesearch: true,
       },
     });

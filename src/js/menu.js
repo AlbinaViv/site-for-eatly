@@ -8,17 +8,16 @@ const divPop = document.querySelector('.fetch-cards');
 
 const LS_KEY = 'itempppp';
 
-// inputEl.addEventListener('submit', handleSubmit);
-inputEl.addEventListener('click', handleSubmit);
+// inputEl.addEventListener('click', handleSubmit);
 
-function handleSubmit(e) {
-  e.preventDefault();
-  //   inputEl.innerHTML = '';
-  //   Notiflix.Loading.circle('Searching...');
+// function handleSubmit(e) {
+//   e.preventDefault();
+//   //   inputEl.innerHTML = '';
+//   //   Notiflix.Loading.circle('Searching...');
 
-  currentQuery = e.target.value;
-  console.log(currentQuery);
-}
+//   currentQuery = e.target.value;
+//   console.log(currentQuery);
+// }
 
 fetchProducts()
   .then(res => {
@@ -52,7 +51,8 @@ function markupProduct(results) {
   const ulEl = document.createElement('ul');
   ulEl.classList.add('card-container-list');
   const markup = results
-    .map(({ img, name, category, price, popularity, _id }) => {
+    .map(({ img, name, category, price, _id }) => {
+      category = category.replace(/_/g, ' ');
       return `<li class="card-item">
             <img
               class="cards-img"
@@ -62,12 +62,12 @@ function markupProduct(results) {
               loading="lazy"
             />
             <div class="product-info-list">
-              <h2 class="card-title">${category}</h2>
+              <h2 class="card-title">${name}</h2>
               <p class="menu-time">24min</p>
               <svg class="icon" width="15" height="15">
                 <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
               </svg>
-              <span>${popularity}</span>
+              <span>${category}</span>
               <p>$${price}</p>
               <svg class="icon" width="16" height="16">
                 <use href="./img/icons.svg#icon-Path-Copy-4star"></use>

@@ -6,7 +6,8 @@ import { addProduct, isInCart } from './basket';
 const inputEl = document.querySelector('#search-form');
 const divPop = document.querySelector('.fetch-cards');
 
-const LS_KEY = 'itempppp';
+// const LS_KEY = 'itempppp';
+const KEY_CART = 'cart_key';
 
 // inputEl.addEventListener('click', handleSubmit);
 
@@ -43,8 +44,6 @@ function addToBasket(e, results) {
     return;
   }
   addProduct(item);
-
-  // localStorage.setItem(LS_KEY, item);
 }
 
 function markupProduct(results) {

@@ -11,24 +11,26 @@ if (localStorage.getItem(LS_KEY)) {
 const info = {};
 localStorage.getItem(LS_KEY);
 
-formEl.addEventListener('submit', handleSubmit);
-formEl.addEventListener('input', handleInput);
+export function renderHome() {
+  formEl.addEventListener('submit', handleSubmit);
+  formEl.addEventListener('input', handleInput);
 
-function handleSubmit(e) {
-  e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  const form = e.target;
-  const email = form.elements.user_email.value;
+    const form = e.target;
+    const email = form.elements.user_email.value;
 
-  if (!email) {
-    return alert('Please enter a valid email!');
+    if (!email) {
+      return alert('Please enter a valid email!');
+    }
+    localStorage.removeItem(LS_KEY);
+
+    form.reset();
   }
-  localStorage.removeItem(LS_KEY);
 
-  form.reset();
-}
-
-function handleInput(e) {
-  info[e.target.name] = e.target.value;
-  localStorage.setItem(LS_KEY, JSON.stringify(info));
+  function handleInput(e) {
+    info[e.target.name] = e.target.value;
+    localStorage.setItem(LS_KEY, JSON.stringify(info));
+  }
 }

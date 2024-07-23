@@ -15,31 +15,32 @@ if (localStorage.getItem(LS_KEY)) {
 const info = {};
 localStorage.getItem(LS_KEY);
 
-formEl.addEventListener('submit', handleSubmit);
-formEl.addEventListener('input', handleInput);
+export function renderContact() {
+  formEl.addEventListener('submit', handleSubmit);
+  formEl.addEventListener('input', handleInput);
 
-function handleSubmit(e) {
-  e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  const form = e.target;
-  const name = form.elements.name.value;
-  const email = form.elements.email.value;
-  const feedback = form.elements.feedback.value;
+    const form = e.target;
+    const name = form.elements.name.value;
+    const email = form.elements.email.value;
+    const feedback = form.elements.feedback.value;
 
-  if (!name || !email || !feedback) {
-    return alert('Please, fill in all fields!');
+    if (!name || !email || !feedback) {
+      return alert('Please, fill in all fields!');
+    }
+    localStorage.removeItem(LS_KEY);
+
+    form.reset();
   }
-  localStorage.removeItem(LS_KEY);
 
-  form.reset();
+  function handleInput(e) {
+    info[e.target.name] = e.target.value;
+
+    localStorage.setItem(LS_KEY, JSON.stringify(info));
+  }
 }
-
-function handleInput(e) {
-  info[e.target.name] = e.target.value;
-
-  localStorage.setItem(LS_KEY, JSON.stringify(info));
-}
-
 // formEl.addEventListener('submit', handleSubmit);
 // const LS_KEY = 'feedback-form-state';
 

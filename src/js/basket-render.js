@@ -1,0 +1,37 @@
+import { KEY_CART } from './basket';
+
+const btnDeleteAll = document.querySelector('.delete-all-btn');
+const btnDelete = document.querySelector('.delete-btn');
+const list = document.querySelector('.product-list');
+
+export function createPage() {
+  const products = localStorage.getItem(KEY_CART);
+  const parsedProducts = JSON.parse(products);
+  if (parsedProducts !== null) {
+    // const numCount = parsedProducts.length;
+    createImageMarkup(getCart());
+    return;
+  }
+}
+
+function createImageMarkup(results) {
+  const markupBasket = results
+    .map(({ img, name, price, _id }) => {
+      return `<li class="card-item">
+            <img
+              class="cards-img"
+              src="${img}"
+              alt="${name}"
+              width="201"
+              loading="lazy"
+            />
+            <div class="product-info-list">
+              <p class="menu-time">24min</p>
+              <p>$${price}</p>
+              <button type="button" class="delete-btn" data-id=${_id}>delete</button>
+            </div>
+          </li>`;
+    })
+    .join('');
+  list.innerHTML = markupBasket;
+}

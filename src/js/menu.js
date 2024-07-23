@@ -19,40 +19,42 @@ const KEY_CART = 'cart_key';
 //   currentQuery = e.target.value;
 //   console.log(currentQuery);
 // }
+export function renderMenu() {
+  fetchProducts()
+    .then(res => {
+      console.log(res.results);
+      markupProduct(res.results);
+      // Notiflix.Loading.remove();
+      const btnAddArr = document.querySelectorAll('.add-btn');
+      btnAddArr.forEach(btnAdd =>
+        btnAdd.addEventListener('click', e => addToBasket(e, res.results))
+      );
+    })
+    .catch(error => {
+      Notiflix.Notify.failure(
+        'Oops! Something went wrong! Try reloading the page!'
+      );
+    })
+    .finally(() => {});
 
-fetchProducts()
-  .then(res => {
-    markupProduct(res.results);
-    // Notiflix.Loading.remove();
-    const btnAddArr = document.querySelectorAll('.add-btn');
-    btnAddArr.forEach(btnAdd =>
-      btnAdd.addEventListener('click', e => addToBasket(e, res.results))
-    );
-  })
-  .catch(error => {
-    Notiflix.Notify.failure(
-      'Oops! Something went wrong! Try reloading the page!'
-    );
-  })
-  .finally(() => {});
-
-function addToBasket(e, results) {
-  const { id } = e.target.dataset;
-  const item = results.find(({ _id }) => _id === id);
-  const productInCart = isInCart(id);
-  if (productInCart) {
-    return;
+  function addToBasket(e, results) {
+    const { id } = e.target.dataset;
+    const item = results.find(({ _id }) => _id === id);
+    const productInCart = isInCart(id);
+    if (productInCart) {
+      return;
+    }
+    addProduct(item);
   }
-  addProduct(item);
-}
 
-function markupProduct(results) {
-  const ulEl = document.createElement('ul');
-  ulEl.classList.add('card-container-list');
-  const markup = results
-    .map(({ img, name, category, price, _id }) => {
-      category = category.replace(/_/g, ' ');
-      return `<li class="card-item">
+  function markupProduct(results) {
+    const ulEl = document.createElement('ul');
+    ulEl.classList.add('card-container-list');
+    const markup = results
+      .map(({ img, name, category, price, _id }) => {
+        category = category.replace(/_/g, ' ');
+        console.log(markup);
+        return `<li class="card-item">
             <img
               class="cards-img"
               src="${img}"
@@ -71,11 +73,12 @@ function markupProduct(results) {
               <svg class="icon" width="16" height="16">
                 <use href="./img/icons.svg#icon-Path-Copy-4star"></use>
               </svg>
-              <button type="button" class="btn add-btn" data-id=${_id}>add</button>
+              <button type="button" class="add-btn" data-id=${_id}>add</button>
             </div>
           </li>`;
-    })
-    .join('');
-  ulEl.insertAdjacentHTML('beforeend', markup);
-  divPop.insertAdjacentElement('beforeend', ulEl);
+      })
+      .join('');
+    ulEl.insertAdjacentHTML('beforeend', markup);
+    divPop.insertAdjacentElement('beexforeend', ulEl);
+  }
 }

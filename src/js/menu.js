@@ -1,10 +1,11 @@
-import { fetchProducts } from './api';
+import { fetchChicken, fetchProducts } from './api';
 import Notiflix from 'notiflix';
 import { addProduct, isInCart } from './basket';
 // import axios from 'axios';
 
 const inputEl = document.querySelector('#search-form');
 const divPop = document.querySelector('.fetch-cards');
+const divChicken = document.querySelector('.fetch-cards-chicken');
 
 // const LS_KEY = 'itempppp';
 const KEY_CART = 'cart_key';
@@ -22,8 +23,27 @@ const KEY_CART = 'cart_key';
 export function renderMenu() {
   fetchProducts()
     .then(res => {
-      console.log(res.results);
-      markupProduct(res.results);
+      const ulEl = markupProduct(res.results);
+      divPop.insertAdjacentElement('beforeend', ulEl);
+
+      // Notiflix.Loading.remove();
+      const btnAddArr = document.querySelectorAll('.add-btn');
+      btnAddArr.forEach(btnAdd =>
+        btnAdd.addEventListener('click', e => addToBasket(e, res.results))
+      );
+    })
+    .catch(error => {
+      Notiflix.Notify.failure(
+        'Oops! Something went wrong! Try reloading the page!'
+      );
+    })
+    .finally(() => {});
+
+  fetchChicken()
+    .then(res => {
+      const ulEl = markupProduct(res.results);
+      divChicken.insertAdjacentElement('beforeend', ulEl);
+
       // Notiflix.Loading.remove();
       const btnAddArr = document.querySelectorAll('.add-btn');
       btnAddArr.forEach(btnAdd =>
@@ -42,9 +62,15 @@ export function renderMenu() {
     const item = results.find(({ _id }) => _id === id);
     const productInCart = isInCart(id);
     if (productInCart) {
+      updateBtn(e.target);
       return;
     }
     addProduct(item);
+    updateBtn(e.target);
+  }
+
+  function updateBtn(btn) {
+    btn.innerHTML = 'in cart';
   }
 
   function markupProduct(results) {
@@ -53,7 +79,6 @@ export function renderMenu() {
     const markup = results
       .map(({ img, name, category, price, _id }) => {
         category = category.replace(/_/g, ' ');
-        console.log(markup);
         return `<li class="card-item">
             <img
               class="cards-img"
@@ -79,6 +104,6 @@ export function renderMenu() {
       })
       .join('');
     ulEl.insertAdjacentHTML('beforeend', markup);
-    divPop.insertAdjacentElement('beexforeend', ulEl);
+    return ulEl;
   }
 }

@@ -1,4 +1,4 @@
-import { KEY_CART } from './basket';
+import { KEY_CART, deleteProduct, getCart, removeAll } from './basket';
 
 const btnDeleteAll = document.querySelector('.delete-all-btn');
 const btnDelete = document.querySelector('.delete-btn');
@@ -13,6 +13,12 @@ export function createPage() {
     return;
   }
 }
+
+// btnDeleteAll.addEventListener('click', removeAllBt);
+
+// function removeAllBt() {
+//   removeAll();
+// }
 
 function createImageMarkup(results) {
   const markupBasket = results

@@ -22,4 +22,22 @@ export async function fetchProducts(q, page) {
     console.log('finally');
   }
 }
+
+export async function fetchChicken(q, page = 5) {
+  try {
+    const res = await axios(baseUrL, {
+      params: {
+        q,
+        page,
+        safesearch: true,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error.message);
+    throw err;
+  } finally {
+    console.log('finally');
+  }
+}
 // fetchProducts().then(res => console.log(res.results));

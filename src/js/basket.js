@@ -2,7 +2,7 @@
 
 export const KEY_CART = 'cart_key';
 
-function getCart() {
+export function getCart() {
   // localStorage.getItem(CART)?? [];
   const shoppingCart = localStorage.getItem(KEY_CART);
   if (!shoppingCart) {
@@ -20,19 +20,16 @@ export function addProduct(product) {
   const updatedShoppingCart = [...shoppingCart2, product];
   localStorage.setItem(KEY_CART, JSON.stringify(updatedShoppingCart));
 }
-// btnDelete.addEventListener('click', deleteProduct);
 
 export function deleteProduct(id) {
+  console.log('kk');
   const shoppingCart2 = getCart();
   const newShoppingCart = shoppingCart2.filter(product => product._id !== id);
   localStorage.setItem(KEY_CART, JSON.stringify(newShoppingCart));
 }
 
-// btnDeleteAll.addEventListener('click', removeAll);
-
 export function removeAll() {
   localStorage.removeItem(KEY_CART);
-  console.log('vv');
 }
 
 export function isInCart(id) {

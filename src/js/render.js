@@ -1,11 +1,11 @@
-import { createPage } from './basket-render';
+import { renderBasket } from './basket-render';
 import { renderContact } from './form-support';
 import { renderMenu } from './menu';
 import { renderHome } from './subscribe';
 
 if (document.title === 'Basket') {
   console.log(document.title);
-  createPage();
+  renderBasket();
 } else if (document.title === 'Menu') {
   console.log(document.title);
 

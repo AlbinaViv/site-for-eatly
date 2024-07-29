@@ -1,29 +1,25 @@
 import { KEY_CART, deleteProduct, getCart, removeAll } from './basket';
 
 const btnDeleteAll = document.querySelector('.delete-all-btn');
+console.log(btnDeleteAll);
 const btnDelete = document.querySelector('.delete-btn');
 const list = document.querySelector('.product-list');
 
-export function createPage() {
-  const products = localStorage.getItem(KEY_CART);
-  const parsedProducts = JSON.parse(products);
-  if (parsedProducts !== null) {
-    // const numCount = parsedProducts.length;
+export function renderBasket() {
+  const products = getCart();
+  createImageMarkup(products);
+
+  btnDeleteAll.addEventListener('click', removeAllBt);
+
+  function removeAllBt() {
+    removeAll();
     createImageMarkup(getCart());
-    return;
   }
-}
 
-// btnDeleteAll.addEventListener('click', removeAllBt);
-
-// function removeAllBt() {
-//   removeAll();
-// }
-
-function createImageMarkup(results) {
-  const markupBasket = results
-    .map(({ img, name, price, _id }) => {
-      return `<li class="card-item">
+  function createImageMarkup(results) {
+    const markupBasket = results
+      .map(({ img, name, price, _id }) => {
+        return `<li class="card-item">
             <img
               class="cards-img"
               src="${img}"
@@ -37,7 +33,8 @@ function createImageMarkup(results) {
               <button type="button" class="delete-btn" data-id=${_id}>delete</button>
             </div>
           </li>`;
-    })
-    .join('');
-  list.innerHTML = markupBasket;
+      })
+      .join('');
+    list.innerHTML = markupBasket;
+  }
 }

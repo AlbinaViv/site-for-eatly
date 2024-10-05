@@ -1,4 +1,4 @@
-import { KEY_CART, deleteProduct, getCart, removeAll } from './basket';
+import { KEY_CART, deleteProduct, getCart, removeAll } from './basket.js';
 
 const btnDeleteAll = document.querySelector('.delete-all-btn');
 console.log(btnDeleteAll);

@@ -1,7 +1,7 @@
-import { renderBasket } from './basket-render';
-import { renderContact } from './form-support';
-import { renderMenu } from './menu';
-import { renderHome } from './subscribe';
+import { renderBasket } from './basket-render.js';
+import { renderContact } from './form-support.js';
+import { renderMenu } from './menu.js';
+import { renderHome } from './subscribe.js';
 
 if (document.title === 'Basket') {
   console.log(document.title);

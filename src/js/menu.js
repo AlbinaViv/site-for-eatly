@@ -1,7 +1,6 @@
 import { fetchChicken, fetchProducts } from './api';
 import Notiflix from 'notiflix';
 import { addProduct, isInCart } from './basket';
-// import axios from 'axios';
 
 const inputEl = document.querySelector('#search-form');
 const divPop = document.querySelector('.fetch-cards');
@@ -25,6 +24,7 @@ export function renderMenu() {
     .then(res => {
       const ulEl = markupProduct(res.results);
       divPop.insertAdjacentElement('beforeend', ulEl);
+      console.log(res.results);
 
       // Notiflix.Loading.remove();
       const btnAddArr = document.querySelectorAll('.add-btn');

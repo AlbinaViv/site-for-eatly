@@ -1,7 +1,6 @@
 import { KEY_CART, deleteProduct, getCart, removeAll } from './basket.js';
 
 const btnDeleteAll = document.querySelector('.delete-all-btn');
-console.log(btnDeleteAll);
 const btnDelete = document.querySelector('.delete-btn');
 const list = document.querySelector('.product-list');
 

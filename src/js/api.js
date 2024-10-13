@@ -14,9 +14,8 @@ export async function fetchProducts(q, page) {
     return res.data;
   } catch (error) {
     console.log(error.message);
-    throw err;
+    throw error;
   } finally {
-    console.log('finally');
   }
 }
 
@@ -32,9 +31,8 @@ export async function fetchChicken(q, page = 5) {
     return res.data;
   } catch (error) {
     console.log(error.message);
-    throw err;
+    throw error;
   } finally {
-    console.log('finally');
   }
 }
 // fetchProducts().then(res => console.log(res.results));

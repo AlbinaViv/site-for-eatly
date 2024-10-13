@@ -1,30 +1,18 @@
-import { fetchChicken, fetchProducts } from './api';
 import Notiflix from 'notiflix';
 import { addProduct, isInCart } from './basket';
+import { fetchChicken, fetchProducts } from './api';
 
 const inputEl = document.querySelector('#search-form');
 const divPop = document.querySelector('.fetch-cards');
 const divChicken = document.querySelector('.fetch-cards-chicken');
 
-// const LS_KEY = 'itempppp';
-const KEY_CART = 'cart_key';
+// const KEY_CART = 'cart_key';
 
-// inputEl.addEventListener('click', handleSubmit);
-
-// function handleSubmit(e) {
-//   e.preventDefault();
-//   //   inputEl.innerHTML = '';
-//   //   Notiflix.Loading.circle('Searching...');
-
-//   currentQuery = e.target.value;
-//   console.log(currentQuery);
-// }
 export function renderMenu() {
   fetchProducts()
     .then(res => {
       const ulEl = markupProduct(res.results);
       divPop.insertAdjacentElement('beforeend', ulEl);
-      console.log(res.results);
 
       // Notiflix.Loading.remove();
       const btnAddArr = document.querySelectorAll('.add-btn');
